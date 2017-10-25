@@ -10,7 +10,7 @@ winrm quickconfig -q
 chef generate app c:\users\chef-repo
 git clone https://github.com/sysgain/ChefAutomateTD_Cookbooks.git c:/users/cookbookstore
 echo c:\Users\chef-repo\.chef\knife.rb | knife configure --server-url https://10.0.0.3/organizations/orguser --validation-client-name orguser-validator --validation-key c:/Users/chef-repo/.chef/orguser-validator.pem --user delivery --repository c:/Users/chef-repo
-echo n | & "C:\Program Files\PuTTY\pscp.exe"  -scp -pw Password@1234 ubuntu@10.0.0.3:/etc/opscode/chefuser.pem C:\Users\chef-repo\.chef\delivery.pem
+echo n | & "C:\Program Files\PuTTY\pscp.exe"  -scp -pw Password@1234 ubuntu@10.0.0.3:/etc/opscode/delivery.pem C:\Users\chef-repo\.chef\delivery.pem
 echo n | & "C:\Program Files\PuTTY\pscp.exe"  -scp -pw Password@1234 ubuntu@10.0.0.3:/etc/opscode/orguser-validator.pem C:\Users\chef-repo\.chef\orguser-validator.pem
 cp -r C:\Users\cookbookstore\* C:\Users\chef-repo\cookbooks
 mv C:\Users\chef-repo\cookbooks\roles C:\Users\chef-repo
