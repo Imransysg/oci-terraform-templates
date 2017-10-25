@@ -34,7 +34,7 @@ sudo chef-server-ctl org-create orguser "Fourth Coffee, Inc." --association_user
 fi
  sudo wget https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate/user-data/ssh_private_key.pem
 sudo chmod 000 ssh_private_key.pem
-sudo scp -o StrictHostKeyChecking=no  -i ssh_private_key.pem /etc/opscode/chefuser.pem  ubuntu@10.0.0.4:/tmp
+sudo scp -o StrictHostKeyChecking=no  -i ssh_private_key.pem /etc/opscode/delivery.pem  ubuntu@10.0.0.4:/tmp
 # configure data collection
 sudo chef-server-ctl set-secret data_collector token '93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'
 sudo chef-server-ctl restart nginx
