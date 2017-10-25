@@ -1,3 +1,6 @@
+param(
+[string] $password = "$1"
+)
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned  -Force
 cd C:\opscode\chefdk\bin
 wusa /uninstall /kb:4025336 /quiet /norestart
@@ -16,7 +19,7 @@ cp -r C:\Users\cookbookstore\* C:\Users\chef-repo\cookbooks
 mv C:\Users\chef-repo\cookbooks\roles C:\Users\chef-repo
 cd C:\opscode\chefdk\bin\
 knife ssl  fetch --config c:\Users\chef-repo\.chef\knife.rb
-knife bootstrap windows winrm localhost --config c:\Users\chef-repo\.chef\knife.rb -x opc -P $p -N chefnode0
+knife bootstrap windows winrm localhost --config c:\Users\chef-repo\.chef\knife.rb -x opc -P $password -N chefnode0
 chef-client 
 knife cookbook upload --config c:\Users\chef-repo\.chef\knife.rb compat_resource audit  ohai windows tissues  logrotate cron chef-client
 knife role from file c:\users\chef-repo\roles\auditrun.json --config c:\Users\chef-repo\.chef\knife.rb 
