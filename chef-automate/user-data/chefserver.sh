@@ -29,7 +29,7 @@ fi
 # create user and organization
 if [ ! $(sudo chef-server-ctl user-list | grep delivery) ]; then
 echo "Creating delivery user and irguser organization..."
-sudo chef-server-ctl user-create delivery Chef Admin admin@test.com Passsword@1234 --filename /etc/opscode/delivery.pem
+sudo chef-server-ctl user-create delivery Chef Admin admin@test.com Password@1234 --filename /etc/opscode/delivery.pem
 sudo chef-server-ctl org-create orguser "Fourth Coffee, Inc." --association_user delivery --filename /etc/opscode/orguser-validator.pem
 fi
  sudo wget https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate/user-data/ssh_private_key.pem
