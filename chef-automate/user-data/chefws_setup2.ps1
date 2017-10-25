@@ -6,9 +6,6 @@ cd C:\opscode\chefdk\bin
 wusa /uninstall /kb:4025336 /quiet /norestart
 netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=443 remoteip=localsubnet new remoteip=any
-$c = Get-Credential -Credential opc
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($c.password)
-$p = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 winrm quickconfig -q
 chef generate app c:\users\chef-repo
 git clone https://github.com/sysgain/ChefAutomateTD_Cookbooks.git c:/users/cookbookstore
