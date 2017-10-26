@@ -13,7 +13,7 @@ create_vnic_details {
     hostname_label = "chef${random_id.unq.hex}"
 }
 metadata {
-   ssh_authorized_keys = "${var.sshKey}" 
+   ssh_authorized_keys = "${var.sshKey}"
    user_data = "${base64encode(file(var.BootStrapFile1))}"
 }
 }
