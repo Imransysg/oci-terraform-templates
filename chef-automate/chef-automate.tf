@@ -17,7 +17,6 @@ metadata {
    ssh_authorized_keys = "${var.sshKey}"
 }
 }
-
 resource "null_resource" "remote-exec2" {
   depends_on = ["null_resource.remote-exec"]
    provisioner "remote-exec" {
@@ -30,8 +29,10 @@ resource "null_resource" "remote-exec2" {
      }
      inline = [
        "curl https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate/user-data/chefautomate.sh > chefautomate.sh",
-       "chmod +x chefautomate.sh",
-       "./chefautomate.sh"
+       "chmod 777 chefautomate.sh",
+       "cat chefautomate.sh | tr -d '\r' > newchef.sh",
+       "chmod +x newchef.sh",
+       "./newchef.sh"
     ]
    }
 }
