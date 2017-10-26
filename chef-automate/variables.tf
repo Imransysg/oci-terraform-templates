@@ -70,6 +70,12 @@ variable "WindowsInstanceOSVersion" {
 variable "WindowsInstanceOSVersion" {
   default = "Server 2012 R2 Standard"
 }
+variable "admin-username" {
+  default = "chefuser"
+}
+variable "password" {
+  default = "Password@1234"
+}
 
 
 
