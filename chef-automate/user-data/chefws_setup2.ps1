@@ -3,7 +3,7 @@ param(
 )
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned  -Force
 cd C:\opscode\chefdk\bin
-wusa /uninstall /kb:4025336 /quiet /norestart
+#wusa /uninstall /kb:4025336 /quiet /norestart
 netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=443 remoteip=localsubnet new remoteip=any
 winrm quickconfig -q
