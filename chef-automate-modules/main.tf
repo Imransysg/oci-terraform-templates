@@ -25,3 +25,11 @@ module "route_table" {
      uid= "${module.unique_id.unqid}"
      rtCIDR ="${var.rtCIDR}"
 }
+
+module "security_list" {
+    source = "modules/security_list"
+    compartment_ocid = "${var.compartment_ocid}"
+    prefix = "${var.prefix}"
+    vcn_ocid = "${module.vcn.vcn_ocid}"
+    uid= "${module.unique_id.unqid}"
+}
