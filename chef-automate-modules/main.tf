@@ -33,3 +33,11 @@ module "security_list" {
     vcn_ocid = "${module.vcn.vcn_ocid}"
     uid= "${module.unique_id.unqid}"
 }
+
+module "dhcp" {
+     source = "modules/dhcp"
+    compartment_ocid = "${var.compartment_ocid}"
+    prefix = "${var.prefix}"
+    vcn_ocid = "${module.vcn.vcn_ocid}"
+    uid= "${module.unique_id.unqid}"
+}
