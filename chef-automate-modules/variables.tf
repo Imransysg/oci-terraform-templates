@@ -13,3 +13,9 @@ variable "rtCIDR" {
 variable "subnet1" {
   default = "10.0.0.0/24"
 }
+variable "LinuxInstanceOS" {
+  default = "Canonical Ubuntu"
+}
+variable "LinuxInstanceOSVersion" {
+  default = "16.04"
+}
