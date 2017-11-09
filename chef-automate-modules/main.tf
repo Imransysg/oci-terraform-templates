@@ -10,6 +10,7 @@ module "internet_gateway" {
     compartment_ocid = "${var.compartment_ocid}"
     prefix = "${var.prefix}"
     vcn_ocid = "${module.vcn.vcn_ocid}"
+    uid="${module.unique_id.unqid}"
 }
 module "unique_id" {
   source = "modules/unique_id"
