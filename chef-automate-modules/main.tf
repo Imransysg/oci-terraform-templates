@@ -11,3 +11,6 @@ module "internet_gateway" {
     prefix = "${var.prefix}"
     vcn_ocid = "${module.vcn.vcn_ocid}"
 }
+module "unique_id" {
+  source = "modules/unique_id"
+}
