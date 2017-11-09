@@ -4,6 +4,3 @@ variable "compartment_ocid" {
 variable "prefix" {
     default= "chef"
 }
-variable "vcnCidr" {
-  default = "10.0.0.0/16"
-}
