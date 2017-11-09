@@ -15,3 +15,13 @@ module "internet_gateway" {
 module "unique_id" {
   source = "modules/unique_id"
 }
+
+module "route_table" {
+    source = "modules/route_table"
+    compartment_ocid = "${var.compartment_ocid}"
+    prefix = "${var.prefix}"
+    vcn_ocid = "${module.vcn.vcn_ocid}"
+    internet_gateway_ocid = "${module.internet_gateway.internet_gateway_ocid}"
+     uid= "${module.unique_id.unqid}"
+     rtCIDR ="${var.rtCIDR}"
+}

@@ -7,3 +7,6 @@ variable "prefix" {
 variable "vcnCidr" {
   default= "10.0.0.0/16"
 }
+variable "rtCIDR" {
+  default = "0.0.0.0/0"
+}
