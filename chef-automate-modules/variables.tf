@@ -10,3 +10,6 @@ variable "vcnCidr" {
 variable "rtCIDR" {
   default = "0.0.0.0/0"
 }
+variable "subnet1" {
+  default = "10.0.0.0/24"
+}

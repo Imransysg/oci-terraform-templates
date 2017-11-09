@@ -1,0 +1,9 @@
+variable "compartment_ocid" {}
+variable "prefix" {}
+variable "vcn_ocid" {}
+variable "uid" {}
+variable "ad1_name" {}
+variable "route_table_ocid" {}
+variable "security_list_ocid" {}
+variable "dhcp_ocid" {}
+variable "subnet1" {}
