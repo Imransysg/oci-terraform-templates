@@ -1,5 +1,4 @@
 resource "oci_core_instance" "chefVM2" {
-  depends_on=["oci_core_instance.chefVM"]
     availability_domain = "${var.ad1_name}"
     compartment_id = "${var.compartment_ocid}"
     display_name = "${var.prefix}-automate${var.uid}"
