@@ -31,9 +31,9 @@ resource "null_resource" "remote-exec" {
      inline = [
        "curl https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate-modules/userdata/chefserver.sh > chefserver.sh",
        "chmod 777 chefserver.sh",
-       "cat chefserver.sh | tr -d '\r' > newchef.sh",
-       "chmod +x newchef.sh",
-       "./newchef.sh"
+       "cat chefserver.sh | tr -d '\r' > server.sh",
+       "chmod +x server.sh",
+       "./server.sh"
      ]
    }
 }

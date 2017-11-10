@@ -10,7 +10,7 @@ create_vnic_details {
     display_name = "${var.prefix}-nic1"
     assign_public_ip = true
     private_ip = "10.0.0.4"
-    hostname_label = "${var.prefix}-server"
+    hostname_label = "${var.prefix}-automate"
 }
 metadata {
    ssh_authorized_keys = "${var.sshKey}"
@@ -18,7 +18,7 @@ metadata {
 }
 
 resource "null_resource" "remote-exec2" {
-  depends_on = ["oci_core_instance.chefVM2"]
+  depends_on = [""]
     provisioner "remote-exec" {
      connection {
         agent = false
@@ -30,9 +30,9 @@ resource "null_resource" "remote-exec2" {
      inline = [
        "curl https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate-modules/userdata/chefautomate.sh > chefserver.sh",
        "chmod 777 chefautomate.sh",
-       "cat chefautomate.sh | tr -d '\r' > newchef.sh",
-       "chmod +x newchef.sh",
-       "./newchef.sh"
+       "cat chefautomate.sh | tr -d '\r' > automate.sh",
+       "chmod +x automate.sh",
+       "./automate.sh"
      ]
    }
 }
