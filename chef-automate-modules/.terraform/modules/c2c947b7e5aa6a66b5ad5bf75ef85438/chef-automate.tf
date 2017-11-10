@@ -9,7 +9,7 @@ create_vnic_details {
     subnet_id = "${var.subnet_ocid}"
     display_name = "${var.prefix}-nic1"
     assign_public_ip = true
-    private_ip = "10.0.0.3"
+    private_ip = "10.0.0.4"
     hostname_label = "${var.prefix}-server"
 }
 metadata {
