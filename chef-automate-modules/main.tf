@@ -66,6 +66,8 @@ module "images_data_source" {
     compartment_ocid = "${var.compartment_ocid}"
     LinuxInstanceOS = "${var.LinuxInstanceOS}"
     LinuxInstanceOSVersion = "${var.LinuxInstanceOSVersion}"
+    WindowsInstanceOS= "${var.WindowsInstanceOS}"
+    WindowsInstanceOSVersion= "${var.WindowsInstanceOSVersion}"
 }
 
 module "vnic_data_source" {
@@ -73,6 +75,7 @@ module "vnic_data_source" {
     compartment_ocid = "${var.compartment_ocid}"
     ad1_name = "${module.ad_data_source.ad1_name}"
     chef_server_ocid = "${module.instance.chef_server_ocid}"
+    chef_automate_ocid = "${module.instance1.chef_automate_ocid}"
 }
 
 module "instance" {
@@ -91,7 +94,7 @@ module "instance" {
     
 }
 
-module "instance" {
+module "instance1" {
     source = "modules/chef_automate"
     compartment_ocid = "${var.compartment_ocid}"
     prefix = "${var.prefix}"
@@ -103,3 +106,15 @@ module "instance" {
     ssh_private_key = "${var.ssh_private_key}"
     chefautomate_public_ip = "${module.vnic_data_source.chefautomate_public_ip}"
     uid= "${module.unique_id.unqid}"
+}
+
+module "instance2" {
+    source = "modules/chef_workstation"
+    compartment_ocid = "${var.compartment_ocid}"
+    prefix = "${var.prefix}"
+    wimage_ocid = "${module.images_data_source.wimage_ocid}"
+    InstanceShape = "${var.InstanceShape}"
+    subnet_ocid = "${module.subnets.subnet_ocid}"
+    ad1_name = "${module.ad_data_source.ad1_name}"
+    uid= "${module.unique_id.unqid}"
+}

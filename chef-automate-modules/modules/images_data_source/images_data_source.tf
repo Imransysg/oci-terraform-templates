@@ -5,7 +5,7 @@ data "oci_core_images" "OLImageOCID" {
     }
 
 data "oci_core_images" "WLImageOCID" {
-    compartment_id = "${var.compId}"
+    compartment_id = "${var.compartment_ocid}"
     operating_system = "${var.WindowsInstanceOS}"
     operating_system_version="${var.WindowsInstanceOSVersion}"
     }
