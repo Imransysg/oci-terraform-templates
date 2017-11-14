@@ -21,7 +21,7 @@ if [ ! $(which automate-ctl) ]; then
 
   # run preflight check
   sudo automate-ctl preflight-check
-
+  sleep 180
   # run setup
   sudo automate-ctl setup --license /tmp/automate.license --key /tmp/delivery.pem --server-url https://10.0.0.3/organizations/orguser --fqdn $(hostname) --enterprise default --configure --no-build-node
   sudo automate-ctl reconfigure
