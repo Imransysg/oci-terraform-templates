@@ -28,7 +28,7 @@ depends_on = ["oci_core_instance.chefVM2"]
        private_key = "${(file(var.ssh_private_key))}"
      }
      inline = [
-       "curl https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate-modules/userdata/chefautomate.sh > chefserver.sh",
+       "curl https://raw.githubusercontent.com/sysgain/oci-terraform-templates/oci-chef-automate/chef-automate-modules/userdata/chefautomate.sh > chefautomate.sh",
        "chmod 777 chefautomate.sh",
        "cat chefautomate.sh | tr -d '\r' > automate.sh",
        "chmod +x automate.sh",
